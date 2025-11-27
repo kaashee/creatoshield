@@ -1,0 +1,5 @@
+fastapi
+uvicorn
+invisible-watermark
+Pillow
+python-multipart

@@ -1,4 +1,4 @@
-from invisible_watermark import WatermarkEncoder
+from imwatermark import WatermarkEncoder
 from PIL import Image
 import io, base64
 

@@ -1,5 +1,5 @@
 fastapi
 uvicorn
-invisible-watermark
+imwatermark
 Pillow
 python-multipart

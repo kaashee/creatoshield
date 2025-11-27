@@ -1,11 +1,11 @@
-from invisible_watermark import WatermarkDecoder
+from imwatermark import WatermarkDecoder
 from PIL import Image
 import io
 
 async def verify_watermark(file):
     img = Image.open(io.BytesIO(await file.read()))
     decoder = WatermarkDecoder()
-    watermark = decoder.decode(img, 'dwtDct')
+    watermark = decoder.decode(img)
 
     if watermark:
         creator_id = watermark.decode()

@@ -1,21 +1,22 @@
-FROM python:3.10
+FROM python:3.10-slim
 
 WORKDIR /app
 
-# System dependencies needed for invisible-watermark + OpenCV
+# Install system dependencies needed for OpenCV + invisible-watermark
 RUN apt update && apt install -y libgl1 libglib2.0-0 ffmpeg
 
-# Copy requirements
+# Install build tools for some Python wheels
+RUN apt install -y build-essential
+
+# Copy and install Python dependencies
 COPY requirements.txt .
 
-# Install Python dependencies
+RUN pip install --no-cache-dir --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy your backend files
+# Copy project files
 COPY . .
 
-# Expose port for FastAPI
 EXPOSE 8000
 
-# Start FastAPI server
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

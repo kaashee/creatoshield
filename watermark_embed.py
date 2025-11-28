@@ -1,4 +1,4 @@
-from imwatermark import WatermarkEncoder
+from invisible_watermark import WatermarkEncoder
 from PIL import Image
 import io, base64
 
@@ -6,7 +6,7 @@ async def embed_watermark(file, creator_id):
     img = Image.open(io.BytesIO(await file.read()))
     encoder = WatermarkEncoder()
     encoder.set_watermark("bytes", creator_id.encode())
-    watermarked = encoder.encode(img)
+    watermarked = encoder.encode(img, 'dwtDct')
 
     img_byte_arr = io.BytesIO()
     watermarked.save(img_byte_arr, format='PNG')

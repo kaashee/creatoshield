@@ -3,4 +3,5 @@ uvicorn
 invisible-watermark
 Pillow
 python-multipart
-opencv-python
+opencv-python-headless==4.10.0.84
+

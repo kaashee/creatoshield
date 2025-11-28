@@ -1,0 +1,43 @@
+# Ignore git folder
+.git
+.gitignore
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Logs and DBs
+*.log
+*.db
+*.sqlite3
+
+# Environment files
+.env
+.env.*
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# Build folders
+build/
+dist/
+*.egg-info/
+
+# Virtual environments
+venv/
+.venv/
+
+# IDE/editor folders
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# Other unwanted system files
+Thumbs.db

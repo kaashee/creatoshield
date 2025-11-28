@@ -1,25 +1,36 @@
-.git
+# Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-*.log
 *.db
-*.sqlite3
-.env
-.env.*
-*.zip
-*.tar
-*.tar.gz
-*.rar
-*.7z
-build/
-dist/
-*.egg-info/
+*.log
+
+# Virtual environments
 venv/
-.venv/
-.idea/
-.vscode/
-*.swp
+.env/
+
+# Node / frontend
+node_modules/
+dist/
+build/
+
+# Git
+.git/
+.gitignore
+
+# OS / editor files
 .DS_Store
-Thumbs.db
+.vscode/
+.idea/
+
+# Model files accidentally added
+*.pt
+*.pth
+*.onnx
+*.bin
+*.h5
+
+# Cache
+*.cache/
+.cache/

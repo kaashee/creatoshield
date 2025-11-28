@@ -2,19 +2,19 @@ FROM python:3.10-slim
 
 WORKDIR /app
 
-# Install system dependencies needed for OpenCV + invisible-watermark
-RUN apt update && apt install -y libgl1 libglib2.0-0 ffmpeg
+# Install only essentials
+RUN apt update && apt install -y --no-install-recommends \
+    build-essential \
+    libgl1 \
+    ffmpeg \
+    libglib2.0-0 \
+    && rm -rf /var/lib/apt/lists/*
 
-# Install build tools for some Python wheels
-RUN apt install -y build-essential
-
-# Copy and install Python dependencies
 COPY requirements.txt .
 
-RUN pip install --no-cache-dir --upgrade pip
+RUN pip install --no-cache-dir --upgrade pip wheel setuptools
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy project files
 COPY . .
 
 EXPOSE 8000
